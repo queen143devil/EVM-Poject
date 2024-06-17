@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Tag Project</title>
+</head>
+<style>
+  .table1{
+    margin-left: 20rem;
+    margin-top: 2rem;
+  }
+  .table2{
+    margin-left: 23rem;
+    margin-top: 4rem;
+    border: 4px solid black;
+    border-radius: 5px;
+    height: 20rem;
+    width: 40rem;
+  }
+  tr th{
+    height: 40px;
+    width: 60px;
+    text-align: center;
+  }
+  tr td{
+    height: 40px;
+    width: 60px;
+    text-align: center;
+  }
+  img{
+    height: 80px;
+    width: 100p;
+  }
+  button{
+    background-color: red;
+    border-radius: 20px;
+    height: 30px;
+    width: 80px;
+  }
+  button:hover{
+    background-color:black;
+    color: white;
+  }
+</style>
+<body>
+  <div>
+    <table border="1" class="table1">
+      <tr>
+        <th><img src="AAP.jpg"></th><th><img src="BSP.jpg"></th><th><img src="BJP.jpg"></th>
+        <th><img src="CPI.jpg"></th><th><img src="INC.jpg"></th><th><img src="NPP.jpg"></th>
+      </tr>
+      <tr>
+        <td>AAP</td><td>BSP</td><td>BJP</td><td>CPI(M)</td><td>INC</td><td>NPP</td>
+      </tr>
+      <tr>
+        <td id="count1"></td><td id="count2"></td><td id="count3"></td><td id="count4"></td><td id="count5"></td><td id="count6"></td>
+      </tr>
+    </table>
+  </div>
+<div>
+
+  <table border="1" class="table2">
+    <tr>
+        <th><img src="AAP.jpg"></th><td>Aam Aadmi Party</td><td><button onclick="myfun1()">AAP</button></td>
+    <tr>
+    <tr>
+        <th><img src="BSP.jpg"></th><td>Bahujan Samaj Party</td><td><button onclick="myfun2()">BSP</button></td>
+    <tr>
+    <tr>
+        <th><img src="BJP.jpg"></th><td>Bharatiya Janata Party</td><td><button onclick="myfun3()">BJP</button></td>
+    <tr>
+    <tr>
+        <th><img src="CPI.jpg"></th><td>Communist Party of India (Marxist)</td><td><button onclick="myfun4()">CPI(M)</button></td>
+    <tr>
+    <tr>
+        <th><img src="INC.jpg"></th><td>Indian National Congress</td><td><button onclick="myfun5()">INC</button></td>
+    <tr>
+    <tr>
+        <th><img src="NPP.jpg"></th><td>National People's Party</td><td><button onclick="myfun6()">NPP</button></td>
+    <tr>
+  </table>
+</div>
+
+
+  <script>
+ let coun1 = 0;
+ let count1 = document.getElementById("count1");
+ function myfun1(){
+  coun1 = coun1 + 1;
+  count1.innerHTML=coun1;
+  alert("Submit Your Vote");
+ }
+ let coun2 = 0;
+ let count2 = document.getElementById("count2");
+ function myfun2(){
+  coun2 = coun2 + 1;
+  count2.innerHTML=coun2;
+  alert("Submit Your Vote");
+ }
+ let coun3 = 0;
+ let count3 = document.getElementById("count3");
+ function myfun3(){
+  coun3 = coun3 + 1;
+  count3.innerHTML=coun3;
+  alert("Submit Your Vote");
+ }
+ let coun4 = 0;
+ let count4 = document.getElementById("count4");
+ function myfun4(){
+  coun4 = coun4 + 1;
+  count4.innerHTML=coun4;
+  alert("Submit Your Vote");
+ }
+ let coun5 = 0;
+ let count5 = document.getElementById("count5");
+ function myfun5(){
+  coun5 = coun5 + 1;
+  count5.innerHTML=coun5;
+  alert("Submit Your Vote");
+ }
+ let coun6 = 0;
+ let count6 = document.getElementById("count6");
+ function myfun6(){
+  coun6 = coun6 + 1;
+  count6.innerHTML=coun6;
+  alert("Submit Your Vote");
+ }
+  </script>
+  
+  
+</body>
+</html>
