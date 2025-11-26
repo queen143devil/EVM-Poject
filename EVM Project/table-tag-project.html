@@ -3,131 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Table Tag Project</title>
+  <title>Voting Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 2rem 0 1rem 0;
+      color: #333;
+    }
+
+    .vote-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .vote-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .vote-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .vote-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+      border-radius: 50%;
+    }
+
+    .vote-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .vote-card p {
+      margin: 0.5rem 0;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background-color: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      border-radius: 10px;
+      background-color: #4CAF50;
+      transition: width 0.5s;
+      text-align: right;
+      color: white;
+      padding-right: 5px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      line-height: 20px;
+    }
+
+    /* Different colors for each party */
+    #progress1 { background-color: #1abc9c; }
+    #progress2 { background-color: #e67e22; }
+    #progress3 { background-color: #e74c3c; }
+    #progress4 { background-color: #3498db; }
+    #progress5 { background-color: #9b59b6; }
+    #progress6 { background-color: #f1c40f; }
+
+    @media (max-width: 600px) {
+      .vote-card {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
-<style>
-  .table1{
-    margin-left: 20rem;
-    margin-top: 2rem;
-  }
-  .table2{
-    margin-left: 23rem;
-    margin-top: 4rem;
-    border: 4px solid black;
-    border-radius: 5px;
-    height: 20rem;
-    width: 40rem;
-  }
-  tr th{
-    height: 40px;
-    width: 60px;
-    text-align: center;
-  }
-  tr td{
-    height: 40px;
-    width: 60px;
-    text-align: center;
-  }
-  img{
-    height: 80px;
-    width: 100p;
-  }
-  button{
-    background-color: red;
-    border-radius: 20px;
-    height: 30px;
-    width: 80px;
-  }
-  button:hover{
-    background-color:black;
-    color: white;
-  }
-</style>
 <body>
-  <div>
-    <table border="1" class="table1">
-      <tr>
-        <th><img src="AAP.jpg"></th><th><img src="BSP.jpg"></th><th><img src="BJP.jpg"></th>
-        <th><img src="CPI.jpg"></th><th><img src="INC.jpg"></th><th><img src="NPP.jpg"></th>
-      </tr>
-      <tr>
-        <td>AAP</td><td>BSP</td><td>BJP</td><td>CPI(M)</td><td>INC</td><td>NPP</td>
-      </tr>
-      <tr>
-        <td id="count1"></td><td id="count2"></td><td id="count3"></td><td id="count4"></td><td id="count5"></td><td id="count6"></td>
-      </tr>
-    </table>
+  <h1>Voting Dashboard</h1>
+
+  <div class="vote-container">
+    <!-- AAP -->
+    <div class="vote-card">
+      <img src="AAP.jpg" alt="AAP">
+      <h3>Aam Aadmi Party</h3>
+      <p id="count1">0 Votes</p>
+      <div class="progress-bar">
+        <div id="progress1" class="progress">0%</div>
+      </div>
+      <button onclick="vote(1)">Vote</button>
+    </div>
+
+    <!-- BSP -->
+    <div class="vote-card">
+      <img src="BSP.jpg" alt="BSP">
+      <h3>Bahujan Samaj Party</h3>
+      <p id="count2">0 Votes</p>
+      <div class="progress-bar">
+        <div id="progress2" class="progress">0%</div>
+      </div>
+      <button onclick="vote(2)">Vote</button>
+    </div>
+
+    <!-- BJP -->
+    <div class="vote-card">
+      <img src="BJP.jpg" alt="BJP">
+      <h3>Bharatiya Janata Party</h3>
+      <p id="count3">0 Votes</p>
+      <div class="progress-bar">
+        <div id="progress3" class="progress">0%</div>
+      </div>
+      <button onclick="vote(3)">Vote</button>
+    </div>
+
+    <!-- CPI(M) -->
+    <div class="vote-card">
+      <img src="CPI.jpg" alt="CPI(M)">
+      <h3>Communist Party of India (M)</h3>
+      <p id="count4">0 Votes</p>
+      <div class="progress-bar">
+        <div id="progress4" class="progress">0%</div>
+      </div>
+      <button onclick="vote(4)">Vote</button>
+    </div>
+
+    <!-- INC -->
+    <div class="vote-card">
+      <img src="INC.jpg" alt="INC">
+      <h3>Indian National Congress</h3>
+      <p id="count5">0 Votes</p>
+      <div class="progress-bar">
+        <div id="progress5" class="progress">0%</div>
+      </div>
+      <button onclick="vote(5)">Vote</button>
+    </div>
+
+    <!-- NPP -->
+    <div class="vote-card">
+      <img src="NPP.jpg" alt="NPP">
+      <h3>National People's Party</h3>
+      <p id="count6">0 Votes</p>
+      <div class="progress-bar">
+        <div id="progress6" class="progress">0%</div>
+      </div>
+      <button onclick="vote(6)">Vote</button>
+    </div>
   </div>
-<div>
-
-  <table border="1" class="table2">
-    <tr>
-        <th><img src="AAP.jpg"></th><td>Aam Aadmi Party</td><td><button onclick="myfun1()">AAP</button></td>
-    <tr>
-    <tr>
-        <th><img src="BSP.jpg"></th><td>Bahujan Samaj Party</td><td><button onclick="myfun2()">BSP</button></td>
-    <tr>
-    <tr>
-        <th><img src="BJP.jpg"></th><td>Bharatiya Janata Party</td><td><button onclick="myfun3()">BJP</button></td>
-    <tr>
-    <tr>
-        <th><img src="CPI.jpg"></th><td>Communist Party of India (Marxist)</td><td><button onclick="myfun4()">CPI(M)</button></td>
-    <tr>
-    <tr>
-        <th><img src="INC.jpg"></th><td>Indian National Congress</td><td><button onclick="myfun5()">INC</button></td>
-    <tr>
-    <tr>
-        <th><img src="NPP.jpg"></th><td>National People's Party</td><td><button onclick="myfun6()">NPP</button></td>
-    <tr>
-  </table>
-</div>
-
 
   <script>
- let coun1 = 0;
- let count1 = document.getElementById("count1");
- function myfun1(){
-  coun1 = coun1 + 1;
-  count1.innerHTML=coun1;
-  alert("Submit Your Vote");
- }
- let coun2 = 0;
- let count2 = document.getElementById("count2");
- function myfun2(){
-  coun2 = coun2 + 1;
-  count2.innerHTML=coun2;
-  alert("Submit Your Vote");
- }
- let coun3 = 0;
- let count3 = document.getElementById("count3");
- function myfun3(){
-  coun3 = coun3 + 1;
-  count3.innerHTML=coun3;
-  alert("Submit Your Vote");
- }
- let coun4 = 0;
- let count4 = document.getElementById("count4");
- function myfun4(){
-  coun4 = coun4 + 1;
-  count4.innerHTML=coun4;
-  alert("Submit Your Vote");
- }
- let coun5 = 0;
- let count5 = document.getElementById("count5");
- function myfun5(){
-  coun5 = coun5 + 1;
-  count5.innerHTML=coun5;
-  alert("Submit Your Vote");
- }
- let coun6 = 0;
- let count6 = document.getElementById("count6");
- function myfun6(){
-  coun6 = coun6 + 1;
-  count6.innerHTML=coun6;
-  alert("Submit Your Vote");
- }
+    let votes = [0, 0, 0, 0, 0, 0]; // Vote counts for each party
+
+    function vote(party) {
+      votes[party - 1]++;
+      updateVotes();
+      alert("Thank you for voting!");
+    }
+
+    function updateVotes() {
+      const totalVotes = votes.reduce((a, b) => a + b, 0);
+      for (let i = 0; i < votes.length; i++) {
+        document.getElementById(`count${i+1}`).textContent = votes[i] + " Votes";
+        const percent = totalVotes ? Math.round((votes[i] / totalVotes) * 100) : 0;
+        const progressEl = document.getElementById(`progress${i+1}`);
+        progressEl.style.width = percent + "%";
+        progressEl.textContent = percent + "%";
+      }
+    }
   </script>
-  
-  
 </body>
 </html>
